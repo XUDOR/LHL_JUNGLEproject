@@ -1,3 +1,4 @@
+#ProductController
 class ProductsController < ApplicationController
 
   def index

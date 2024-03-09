@@ -3,7 +3,9 @@
     <%= image_tag product.image.tiny.url %>
   </td>
   <td>
-    <h4><%= product.name %></h4>
+    <h4>
+      <%= product.name %>
+    </h4>
     <br>
     <p><%= product.description %></p>
   </td>
@@ -14,7 +16,11 @@
     <%= humanized_money_with_symbol product.price %>
   </td>
   <td>
-    <%= product.quantity %>
+    <% if product.quantity.zero? %>
+      <span class="soldout">Sold Out</span>
+    <% else %>
+      <%= product.quantity %>
+    <% end %>
   </td>
   <td>
     <%= link_to fa_icon('trash'), [:admin, product], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>

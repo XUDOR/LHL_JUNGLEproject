@@ -1,3 +1,5 @@
+# app/controllers/admin/categories_controller.rb
+
 module Admin
   class CategoriesController < ApplicationController
     before_action :set_category, only: [:show, :edit, :update, :destroy]
@@ -22,7 +24,7 @@ module Admin
       @category = Category.new(category_params)
 
       if @category.save
-        redirect_to [:admin, @category], notice: 'Category was successfully created.'
+        redirect_to admin_categories_url, notice: 'Category was successfully created.'
       else
         render :new
       end

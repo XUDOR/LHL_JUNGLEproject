@@ -19,3 +19,4 @@ Rails.application.routes.draw do
     resources :categories # Supports category management in the admin namespace
   end
 end
+  

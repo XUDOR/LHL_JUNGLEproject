@@ -1,2 +1,20 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<h1>Admin Dashboard</h1>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">Total Products</h4>
+        <p><%= @products_count %> products are currently in the database.</p>
+        <%= link_to 'View Products', admin_products_path, class: 'btn btn-primary' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">Total Categories</h4>
+        <p><%= @categories_count %> categories are currently in the database.</p>
+        <%= link_to 'View Categories', admin_categories_path, class: 'btn btn-secondary' %>
+      </div>
+    </div>
+  </div>
+</div>

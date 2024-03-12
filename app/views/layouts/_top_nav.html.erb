@@ -1,5 +1,4 @@
-
-<header class="<%= current_page?(root_path) ? "hero" : "hero small" %>">
+<header class="<%= current_page?(root_path) ? 'hero' : 'hero small' %>">
   <section class="title">
     <h3>Welcome to</h3>
     <h1>The Jungle</h1>
@@ -17,21 +16,34 @@
         <!-- Existing Categories Dropdown (if any) -->
       </ul>
       <ul class="navbar-nav">
-        <!-- ADD YOUR 'ABOUT US' LINK HERE -->
+        <!-- 'About Us' Link -->
         <li class="nav-item">
           <%= link_to 'About Us', about_path, class: "nav-link" %>
         </li>
-        <!-- Existing 'Admin' Dropdown -->
+        <!-- Authentication Links -->
+        <% if current_user %>
+          <li class="nav-item">
+            <%= link_to 'Logout', logout_path, method: :delete, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Login', login_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sign Up', signup_path, class: "nav-link" %>
+          </li>
+        <% end %>
+        <!-- 'Admin' Dropdown -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdownAdmin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Admin
           </a>
           <ul class="dropdown-menu dropdown-menu-dark">
-            <li><%= link_to 'Dashboard', [:admin, :root], class: "nav-link" %></li>
-            <li><%= link_to 'Products', [:admin, :products], class: "nav-link" %></li>
+            <li><%= link_to 'Dashboard', [:admin, :root], class: "dropdown-item" %></li>
+            <li><%= link_to 'Products', [:admin, :products], class: "dropdown-item" %></li>
           </ul>
         </li>
-        <!-- Existing 'My Cart' Link -->
+        <!-- 'My Cart' Link -->
         <li class="nav-item end-0">
           <%= link_to cart_path, class: "nav-link" do %> <%= fa_icon "shopping-cart" %>
           My Cart (<%= cart.size %>) <% end %>
@@ -42,7 +54,7 @@
 </nav>
 <script>
 (function(){
-const gnr = () => {
+  const gnr = () => {
     const uptitle = document.querySelector("section.title h3");
     const subtitle = document.querySelector("section.title h2");
     const header = document.querySelector("header.hero");
@@ -51,11 +63,9 @@ const gnr = () => {
     uptitle.style.fontWeight = 900;
     uptitle.style.textAlign = "center";
 
-    subtitle.innerHTML =
-      "<p>Watch it bring you to your</p><p> shu-n-n-n-n-n-n-n-n knees, knees!</p>";
+    subtitle.innerHTML = "<p>Watch it bring you to your</p><p> shu-n-n-n-n-n-n-n-n knees, knees!</p>";
   };
   const title = document.querySelector("header.hero");
   title.addEventListener("dblclick", gnr);
-  
-})()
-  </script>
+})();
+</script>

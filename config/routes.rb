@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get '/about', to: 'about#index'
   root to: 'products#index'
 
@@ -18,5 +17,12 @@ Rails.application.routes.draw do
     resources :products, except: [:edit, :update, :show]
     resources :categories # Supports category management in the admin namespace
   end
+
+  # User authentication routes
+  get 'signup', to: 'users#new', as: 'signup'
+  post 'users', to: 'users#create'
+  get 'login', to: 'sessions#new', as: 'login'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy', as: 'logout'
+  resources :users
 end
-  

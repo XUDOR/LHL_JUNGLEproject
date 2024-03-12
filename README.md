@@ -1,3 +1,17 @@
+# Submission for Code Review 
+by: Roderick Shoolbraid / Lighthouse Labs Student.
+This assignment was completed with the use of:
+Google
+Perplexity.ai
+ChatGpt4
+-tutorial from Github:
+https://gist.github.com/thebucknerlife/10090014
+https://stevepolito.design/blog/rails-authentication-from-scratch
+https://rubygems.org/gems/bcrypt/versions/3.1.12?locale=en
+
+** In accordance with the AI mandate by Lighthouse Labs **
+
+__________________________________________________________
 # Jungle
 
 A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.

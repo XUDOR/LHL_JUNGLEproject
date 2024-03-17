@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/about', to: 'about#index'
+  get '/about/index', to: 'about#index' # Route for AboutController's index action
   root to: 'products#index'
 
   resources :products, only: [:index, :show]

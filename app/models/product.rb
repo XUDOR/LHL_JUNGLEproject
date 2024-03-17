@@ -7,6 +7,8 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :quantity, presence: true
   validates :category, presence: true
+  validates :image, presence: true
+
 
   validate :price_must_be_present
 
